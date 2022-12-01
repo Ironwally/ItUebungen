@@ -1,0 +1,33 @@
+A Simple Turtle Graphics Package
+--------------------------------
+(c) 2013 Carsten Sinz, KIT Karlsruhe
+
+To compile:
+    javac *.java
+
+To run:
+    java TurtleCanvas
+
+The files in this directory are:
+- Turtle.java:       implements a turtle with forward/left/right commands
+- TurtleCanvas.java: some AWT/Swing stuff, the 'playground' of the turtle
+- TurtlePath.java:   an interface with a 'draw' method to specify what the 
+                     turtle should do
+- {KochCurve,Snowflake,SquareArt,SimpleArt}.java: example implementations of the
+                     'TurtlePath' interface
+
+You can generate different drawings by implementing the 'TurtlePath'
+interface. The path that the turtle takes has to be given in the 
+constructor of 'TurtleCanvas'.
+
+Three example implementations of 'TurtlePath' are given:
+- KochCurve: draw a Koch curve
+- Snowflake: draw a snowflake using Koch curves
+- SquareArt: simple example drawing multiple squares
+- SimpleArt: draw a square
+
+Possible extensions:
+- Paths in different colors
+- Pen up/down command for the turtle
+- Multiple turtles on one canvas
+- ...
