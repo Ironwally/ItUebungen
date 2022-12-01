@@ -19,6 +19,7 @@ class Turtle {
      */
     private double posX, posY;
     private double phi;
+    private boolean penDown;
 
     /* Private helper functions to convert angles from degrees
      * to radians, and to normalize the turtle's orientation.
@@ -36,6 +37,7 @@ class Turtle {
     public Turtle() {
         posX = posY = 0.0;
         phi = 0.0;
+        penDown = true;
     }
 
     /* Set the graphics context for the turtle. */
@@ -47,6 +49,13 @@ class Turtle {
     public void setPosition(double x, double y) {
         posX = x;
         posY = y;
+    }
+
+    public void penDown() {
+        penDown = true;
+    }
+    public void penUp() {
+        penDown = false;
     }
     
     /* Set the orientation of the turtle. */
@@ -62,8 +71,8 @@ class Turtle {
         double newX = posX + Math.sin(psi) * dist;
         double newY = posY + Math.cos(psi) * dist;
         
-        /* Draw line between old and new position. */
-        graphics.drawLine((int) posX, (int) posY, (int) newX, (int) newY);
+        /* Draw line between old and new position. */ //If the Pen is Down
+        if (penDown) graphics.drawLine((int) posX, (int) posY, (int) newX, (int) newY);
         
         /* Update turtle's position. */
         posX = newX;
